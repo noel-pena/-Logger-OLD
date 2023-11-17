@@ -1,0 +1,42 @@
+#main{
+	background: linear-gradient(-60deg, #ea8532, #cb8b00, #ffc400);
+	background-size: 400% 400%;
+	animation: gradient 7s ease infinite;
+	height: 85vh;
+}
+
+#header{
+    background: linear-gradient(-60deg, #be7602, #feb71f, #ffb300);
+}
+
+#footer{
+    background: linear-gradient(-60deg, #ffb300, #feb71f, #be7602);
+    height: 10vh;
+    font-size: smaller;
+}
+
+#blogger{
+    font-size: smaller;
+}
+
+#textbox{
+    height: 200px;
+	width: 750px;
+    border-style: none;
+    border-radius: 5px;
+    background-color: rgb(231, 231, 231);
+
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
