@@ -24,13 +24,15 @@
 
         <!-- textbox -->
 
-        <form class="lead d-flex">
-            <textarea id="textbox" type="submit" name="log" placeholder="Type here" value="OK"></textarea>
+        <form class="lead d-flex flex-column" method="post" action="/posted">
+            <textarea class="container-fluid"  id="textbox" type="text" name="log" placeholder="Type here" ></textarea>
+            <br>
+            <input class="btn btn-lg btn-light fw-bold border-white bg-white lead" type="submit" value="Post"> 
         </form>
-        <br>
+        <!-- <br>
         <p class="lead">
-        <a href="/" class="btn btn-lg btn-light fw-bold border-white bg-white">Post</a>
-        </p>
+        <a class="btn btn-lg btn-light fw-bold border-white bg-white">Post</a>
+        </p> -->
     </div>
 </div>
 
