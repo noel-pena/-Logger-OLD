@@ -17,7 +17,6 @@ const newData = (noteText) => {
     return new Uint8Array(Buffer.from(`<%- include("partials_notes/header.ejs") %><h1> ${noteText} </h1><%- include("partials_notes/footer.ejs") %>`))
 }
 
-//deez
 app.use(express.static("public"));
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -45,7 +44,7 @@ let count = 0;
 app.use(logger)
 
 app.post("/posted", (req, res) => {
-    postText = (req.body["log"]);
+    postText = (req.body["body"]);
     console.log(postText);
     res.render("posted.ejs", {postEm: postText});
     writeFile('./views/notes/notes' + count + '.ejs', newData(postText), (err) => {
@@ -57,14 +56,13 @@ app.post("/posted", (req, res) => {
 
 let savedLogs = __dirname + "/views/notes/notes" + count + ".ejs";
 
-app.get("/notes", (req, res) => {
-    console.log('in this hoe');
-    return res.render("./notes/notes0.ejs", {postEm: postText});
+app.get("/notes", (req, res) => {;
+    return res.render("./notes/notes2.ejs", {postEm: postText});
 });
 
 app.get("/logs", (req, res) => {
     console.log('app get logs');
-    postText = (req.body["log"]);
+    postText = (req.body["body"]);
     res.render("logs.ejs", {saveEm: savedLogs, postEm: postText});
 });
 
@@ -72,11 +70,13 @@ app.listen(port, () => {
     console.log(`Listening on port ${port}`);
 });
 
+let notesArr = [];
+
 // make and array and then push the object 
 // let notesArr = []
 // {
 //     Title: string
-//     Body:string
+//     Body: string
 // }
 
 []

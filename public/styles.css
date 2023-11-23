@@ -27,6 +27,13 @@
 
 }
 
+#textbox-2{
+    border-style: none;
+    border-radius: 5px;
+    background-color: rgb(231, 231, 231);
+
+}
+
 @keyframes gradient {
 	0% {
 		background-position: 0% 50%;
