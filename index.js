@@ -17,7 +17,7 @@ const newData = (noteText) => {
     return new Uint8Array(Buffer.from(`<%- include("partials_notes/header.ejs") %><h1> ${noteText} </h1><%- include("partials_notes/footer.ejs") %>`))
 }
 
-
+//deez
 app.use(express.static("public"));
 
 app.use(bodyParser.urlencoded({ extended: true }));
