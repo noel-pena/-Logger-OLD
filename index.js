@@ -11,7 +11,12 @@ const port = 3000;
 
 let postText = ""
 
-const data = new Uint8Array(Buffer.from(`<%- include("partials_notes/header.ejs") %><h1><%= postEm %></h1><%- include("partials_notes/footer.ejs") %>`)) || {postEm: postText};
+// const data = new Uint8Array(Buffer.from(`<%- include("partials_notes/header.ejs") %><h1><%= ${postText} %></h1><%- include("partials_notes/footer.ejs") %>`));
+
+const newData = (noteText) => {
+    return new Uint8Array(Buffer.from(`<%- include("partials_notes/header.ejs") %><h1> ${noteText} </h1><%- include("partials_notes/footer.ejs") %>`))
+}
+
 
 app.use(express.static("public"));
 
@@ -41,8 +46,9 @@ app.use(logger)
 
 app.post("/posted", (req, res) => {
     postText = (req.body["log"]);
+    console.log(postText);
     res.render("posted.ejs", {postEm: postText});
-    writeFile('./views/notes/notes' + count + '.ejs', data, (err) => {
+    writeFile('./views/notes/notes' + count + '.ejs', newData(postText), (err) => {
         if (err) throw err;
         console.log('The file has been saved!');
       }); 
@@ -52,10 +58,12 @@ app.post("/posted", (req, res) => {
 let savedLogs = __dirname + "/views/notes/notes" + count + ".ejs";
 
 app.get("/notes", (req, res) => {
-    res.render("./notes/notes0.ejs", {postEm: postText});
+    console.log('in this hoe');
+    return res.render("./notes/notes0.ejs", {postEm: postText});
 });
 
 app.get("/logs", (req, res) => {
+    console.log('app get logs');
     postText = (req.body["log"]);
     res.render("logs.ejs", {saveEm: savedLogs, postEm: postText});
 });
@@ -63,3 +71,12 @@ app.get("/logs", (req, res) => {
 app.listen(port, () => {
     console.log(`Listening on port ${port}`);
 });
+
+// make and array and then push the object 
+// let notesArr = []
+// {
+//     Title: string
+//     Body:string
+// }
+
+[]
