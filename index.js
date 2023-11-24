@@ -72,10 +72,10 @@ app.listen(port, () => {
 
 let notesArr = [];
 
-let notes = {
-    "title": "String",
-    "body":" "String",
-}
+let notes = [{
+    title: (req.body["title"]),
+    body: (req.body["body"])
+}]
 // make and array and then push the object 
 // let notesArr = []
 // {
