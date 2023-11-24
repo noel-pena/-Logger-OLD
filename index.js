@@ -57,7 +57,7 @@ app.post("/posted", (req, res) => {
 let savedLogs = __dirname + "/views/notes/notes" + count + ".ejs";
 
 app.get("/notes", (req, res) => {;
-    return res.render("./notes/notes2.ejs", {postEm: postText});
+    return res.render("./notes/notes0.ejs", {postEm: postText});
 });
 
 app.get("/logs", (req, res) => {
@@ -72,11 +72,13 @@ app.listen(port, () => {
 
 let notesArr = [];
 
+let notes = {
+    "title": "String",
+    "body":" "String",
+}
 // make and array and then push the object 
 // let notesArr = []
 // {
 //     Title: string
 //     Body: string
 // }
-
-[]
