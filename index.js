@@ -24,6 +24,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 function logger(req, res, next){
     postText = (req.body["log"]);
+    let notesArr = [];
+    let notesObj = {};
+    notesObj["01"] = (req.body["title"]);
+    notesObj["02"] = (req.body["body"]);
+    notesArr.push(notesObj);
+    console.log(notesArr);
     next();
 }
 
@@ -60,25 +66,27 @@ app.get("/notes", (req, res) => {;
     return res.render("./notes/notes0.ejs", {postEm: postText});
 });
 
+
 app.get("/logs", (req, res) => {
     console.log('app get logs');
     postText = (req.body["body"]);
     res.render("logs.ejs", {saveEm: savedLogs, postEm: postText});
+    notesArr.push
 });
 
 app.listen(port, () => {
     console.log(`Listening on port ${port}`);
 });
 
-let notesArr = [];
 
-let notes = [{
-    title: (req.body["title"]),
-    body: (req.body["body"])
-}]
+// let notes = [{
+//     title: (req.body["title"]),
+//     body: (req.body["body"])
+// }]
 // make and array and then push the object 
 // let notesArr = []
 // {
 //     Title: string
 //     Body: string
 // }
+
